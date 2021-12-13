@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% block title %} FORMULARIO-EDITORES {% endblock %}
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success" type="submit">Guardar</button>
+        <a class="btn btn-info" href="javascript:history.back();">Regresar</a>
+    </form>
+{% endblock %}

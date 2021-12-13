@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% block title %} LISTA-LIBROS {% endblock %}
+{% block content %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Titulo</td>
+            <td>Autores</td>
+            <td>Fecha de publicacón</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
+        {% for libro in object_list %}
+        <tr>
+            <td>{{ libro.id }}</td>
+            <td>{{ libro.titulo }}</td>
+            <td>{% for autor in libro.autores.values %}
+                {{ autor.nombre }} {{ autor.apellidos }}{% if not forloop.last %},{% endif %}
+                {% endfor %}</td>
+            <td>{{ libro.fecha_publicacion }}</td>
+            <td>
+                <a class="btn btn-info" href="{% url 'biblioteca:libro_detalleclase' libro.id %}" >Ver libro</a>
+                <a class="btn btn-primary" href="{% url 'biblioteca:libro_editarclase' libro.id %}" >Editar</a>
+                <a class="btn btn-danger" href="{% url 'biblioteca:libro_eliminarclase' libro.id %}" >Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% elif libros %}
+        {% for libro in libros %}
+        <tr>
+            <td>{{ libro.id }}</td>
+            <td>{{ libro.titulo }}</td>
+            <td>{% for autor in libro.autores.values %}
+                {{ autor.nombre }} {{ autor.apellidos }}{% if not forloop.last %},{% endif %}
+                {% endfor %}</td>
+            <td>{{ libro.fecha_publicacion }}</td>
+            <td>
+                <a class="btn btn-info" href="{% url 'biblioteca:libro_detallefuncion' libro.id %}" >Ver libro</a>
+                <a class="btn btn-primary" href="{% url 'biblioteca:libro_editarfuncion' libro.id %}" >Editar</a>
+                <a class="btn btn-danger" href="{% url 'biblioteca:libro_eliminarfuncion' libro.id %}" >Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No Hay Registros de Libros</h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

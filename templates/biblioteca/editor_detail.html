@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+{% block title %} DETALLE-EDITOR {% endblock %}
+{% block content %}
+<div id="verE">
+ <h3>Información del editor</h3>
+<form method="post">
+	{% csrf_token %}
+	<div class="row">
+		<div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+                <label for="#">#</label>
+				<input value="{{object.id}}">
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Nombre completo</label>
+				<input value="{{ object.nombre }} {{ object.apellidos }}">
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Domicilio</label>
+				<input value="{{ object.domicilio }}">
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Ciudad</label>
+				<input value="{{ object.ciudad }}">
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Estado</label>
+				<input value="{{ object.estado }}">
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">País</label>
+				<input value="{{object.pais}}">
+			</div>
+		</div>
+        <div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="#">Página web</label>
+				<input value="{{object.website}}"><a class="btn btn-warning" href="{{ object.website }}" target="_blank">Ir</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-1">
+			<div class="form-group">
+                <a class="btn btn-info" href="javascript:history.back();">Regresar</a>
+			</div>
+		</div>
+</form>
+</div>
+{% endblock %}
+{% block extrajs %}
+    <script type="text/javascript">
+        $("#verE :input").prop("disabled", true);
+    </script>
+{% endblock %}

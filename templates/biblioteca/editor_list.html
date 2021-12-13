@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% block title %} LISTA-EDITORES {% endblock %}
+{% block content %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Nombre</td>
+            <td>País</td>
+            <td>Pagina Web</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
+        {% for editor in object_list %}
+        <tr>
+            <td>{{ editor.id }}</td>
+            <td>{{ editor.nombre }}</td>
+            <td>{{ editor.pais }}</td>
+            <td><a class="btn btn-warning" href="{{ editor.website }}" >Visitar</a> {{ editor.website }}</td>
+            <td>
+                <a class="btn btn-info" href="{% url 'biblioteca:editor_detalleclase' editor.id %}" >Ver editor</a>
+                <a class="btn btn-primary" href="{% url 'biblioteca:editor_editarclase' editor.id %}" >Editar</a>
+                <a class="btn btn-danger" href="{% url 'biblioteca:editor_eliminarclase' editor.id %}" >Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% elif editores %}
+        {% for editor in editores %}
+        <tr>
+            <td>{{ editor.id }}</td>
+            <td>{{ editor.nombre }}</td>
+            <td>{{ editor.pais }}</td>
+            <td><a class="btn btn-warning related-lookup" href="{{ editor.website }}" target="_blank">Visitar</a> {{ editor.website }}</td>
+            <td>
+                <a class="btn btn-info" href="{% url 'biblioteca:editor_detallefuncion' editor.id %}" >Ver editor</a>
+                <a class="btn btn-primary" href="{% url 'biblioteca:editor_editarfuncion' editor.id %}" >Editar</a>
+                <a class="btn btn-danger" href="{% url 'biblioteca:editor_eliminarfuncion' editor.id %}" >Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+            <h1>No Hay Registros de Editores</h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

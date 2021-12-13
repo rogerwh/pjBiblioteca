@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% block title %} LISTA-AUTORES {% endblock %}
+{% block content %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Nombre completo</td>
+            <td>Correo electrónico</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
+        {% for autor in object_list %}
+        <tr>
+            <td>{{ autor.id }}</td>
+            <td>{{ autor.nombre }} {{ autor.apellidos }}</td>
+            <td>{{ autor.email }}</td>
+            <td>
+                <a class="btn btn-info" href="{% url 'biblioteca:autor_detalleclase' autor.id %}" >Ver autor</a>
+                <a class="btn btn-primary" href="{% url 'biblioteca:autor_editarclase' autor.id %}" >Editar</a>
+                <a class="btn btn-danger" href="{% url 'biblioteca:autor_eliminarclase' autor.id %}" >Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% elif autores %}
+        {% for autor in autores %}
+        <tr>
+            <td>{{ autor.id }}</td>
+            <td>{{ autor.nombre }} {{ autor.apellidos }}</td>
+            <td>{{ autor.email }}</td>
+            <td>
+                <a class="btn btn-info" href="{% url 'biblioteca:autor_detallefuncion' autor.id %}" >Ver autor</a>
+                <a class="btn btn-primary" href="{% url 'biblioteca:autor_editarfuncion' autor.id %}" >Editar</a>
+                <a class="btn btn-danger" href="{% url 'biblioteca:autor_eliminarfuncion' autor.id %}" >Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No Hay Registros de Autores</h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
