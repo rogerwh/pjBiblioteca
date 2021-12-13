@@ -16,9 +16,13 @@
     pip install  -r requeriments.txt
 ## Paso 6: Crear base de datos
     sudo -u postgres createdb biblioteca
-## Paso 7: Cambiar contraseña del usuario postgres (por defecto):
+## Paso 7: Crear usuario y dar privilegios en postgresql:
     sudo -u postgres psql template1
-    ALTER USER postgres PASSWORD "newPassword"
+    CREATE USER biblioteca WITH PASSWORD 'password';
+    GRANT ALL PRIVILEGES ON DATABASE biblioteca to biblioteca;
+    \c biblioteca
+    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO biblioteca;
+    GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO biblioteca;
 #### para salir usar:
     \q
 ## Paso 8: Crear migraciones desde la carpeta del proyecto
