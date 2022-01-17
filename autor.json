@@ -1,0 +1,92 @@
+[
+{
+  "model": "biblioteca.autor",
+  "pk": 1,
+  "fields": {
+    "nombre": "Jorge Luis",
+    "apellidos": "Borges",
+    "email": "jorgeborges@test.com"
+  }
+},
+{
+  "model": "biblioteca.autor",
+  "pk": 2,
+  "fields": {
+    "nombre": "Antonio",
+    "apellidos": "Machado",
+    "email": "antoniomachado@test.com"
+  }
+},
+{
+  "model": "biblioteca.autor",
+  "pk": 3,
+  "fields": {
+    "nombre": "Edgar",
+    "apellidos": "Allan Poe",
+    "email": "edgarpoe@test.com"
+  }
+},
+{
+  "model": "biblioteca.autor",
+  "pk": 4,
+  "fields": {
+    "nombre": "Miguel",
+    "apellidos": "de Cervantes",
+    "email": "miguelcervantes@test.com"
+  }
+},
+{
+  "model": "biblioteca.autor",
+  "pk": 5,
+  "fields": {
+    "nombre": "Gabriel",
+    "apellidos": "Garc\u00eda M\u00e1rquez",
+    "email": "gabrielmarquez@test.com"
+  }
+},
+{
+  "model": "biblioteca.autor",
+  "pk": 6,
+  "fields": {
+    "nombre": "Pablo",
+    "apellidos": "Neruda",
+    "email": "pabloneruda@test.com"
+  }
+},
+{
+  "model": "biblioteca.autor",
+  "pk": 7,
+  "fields": {
+    "nombre": "Ruben",
+    "apellidos": "Dario",
+    "email": "rubendario@test.com"
+  }
+},
+{
+  "model": "biblioteca.autor",
+  "pk": 8,
+  "fields": {
+    "nombre": "Rafael",
+    "apellidos": "Alberti",
+    "email": "rafaelalberti@test.com"
+  }
+},
+{
+  "model": "biblioteca.autor",
+  "pk": 9,
+  "fields": {
+    "nombre": "William",
+    "apellidos": "Shakespeare",
+    "email": "williamshakespeare@test.com"
+  }
+},
+{
+  "model": "biblioteca.autor",
+  "pk": 10,
+  "fields": {
+    "nombre": "Franz",
+    "apellidos": "Kafka",
+    "email": "franzkafka@test.com"
+  }
+}
+]
