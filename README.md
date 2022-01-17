@@ -32,3 +32,8 @@ In postgres shell:
 ### 6.- Load Data
 
     ./manage.py loaddata autor.json
+
+### 7.- Go To
+
+    http://127.0.0.1:8000/biblioteca/autor/listarfuncion/
+
